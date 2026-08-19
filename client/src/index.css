@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-neutral-50 text-neutral-900 antialiased;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+.dark body {
+  @apply bg-[#0d0f17] text-neutral-100;
+}
+
+/* ---------- Components ---------- */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold
+      transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500
+      focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50
+      active:scale-[0.98] dark:focus-visible:ring-offset-[#0d0f17];
+  }
+  .btn-primary {
+    @apply btn bg-brand-500 text-white shadow-sm hover:bg-brand-600;
+  }
+  .btn-secondary {
+    @apply btn border border-neutral-200 bg-white text-neutral-700 hover:bg-neutral-50
+      dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 dark:hover:bg-neutral-700;
+  }
+  .btn-ghost {
+    @apply btn text-neutral-600 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800;
+  }
+  .input {
+    @apply w-full rounded-xl border border-neutral-200 bg-white px-3.5 py-2.5 text-sm text-neutral-900
+      placeholder-neutral-400 transition focus:border-brand-400 focus:outline-none focus:ring-2
+      focus:ring-brand-400/30 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100
+      dark:placeholder-neutral-500;
+  }
+  .card {
+    @apply rounded-2xl border border-neutral-200 bg-white shadow-sm
+      dark:border-neutral-800 dark:bg-[#151823];
+  }
+  .chip {
+    @apply inline-flex items-center rounded-md px-2 py-0.5 text-xs font-medium
+      text-brand-700 dark:text-brand-300;
+  }
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-neutral-300 dark:bg-neutral-700;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ---------- Tiptap editor ---------- */
+.ProseMirror {
+  @apply min-h-[220px] px-0 text-neutral-800 dark:text-neutral-100 focus:outline-none;
+}
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  @apply pointer-events-none float-left h-0 text-neutral-400;
+}
+.ProseMirror h1 {
+  @apply text-2xl font-bold;
+}
+.ProseMirror h2 {
+  @apply text-xl font-bold;
+}
+.ProseMirror h3 {
+  @apply text-lg font-semibold;
+}
+.ProseMirror ul {
+  @apply list-disc pl-6;
+}
+.ProseMirror ol {
+  @apply list-decimal pl-6;
+}
+.ProseMirror a {
+  @apply text-brand-600 underline;
+}
+.ProseMirror img {
+  @apply my-3 max-h-96 max-w-full rounded-lg object-cover;
+  display: block;
+}
+
+/* Resizable image (drag the bottom-right handle) */
+.resizable-image {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+}
+.resizable-image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.resize-handle {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background: #f43f45;
+  border: 2px solid #fff;
+  cursor: nwse-resize;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.resizable-image:hover .resize-handle {
+  opacity: 1;
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

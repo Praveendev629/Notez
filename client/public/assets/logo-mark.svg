@@ -1,0 +1,47 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="200" y2="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#23283c"/>
+      <stop offset="1" stop-color="#0c0e16"/>
+    </linearGradient>
+    <linearGradient id="penBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff6b6e"/>
+      <stop offset="1" stop-color="#e01e26"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- app-tile background -->
+  <rect x="8" y="8" width="184" height="184" rx="52" fill="url(#tile)" stroke="rgba(255,255,255,0.07)" stroke-width="1.5"/>
+
+  <!-- notebook -->
+  <g filter="url(#shadow)">
+    <rect x="46" y="34" width="108" height="122" rx="20" fill="#14161f" stroke="#ff4b50" stroke-width="8"/>
+    <!-- binder rings -->
+    <rect x="41" y="60" width="10" height="9" rx="3" fill="#ff4b50"/>
+    <rect x="41" y="90" width="10" height="9" rx="3" fill="#ff4b50"/>
+    <rect x="41" y="120" width="10" height="9" rx="3" fill="#ff4b50"/>
+    <!-- ruled lines -->
+    <rect x="58" y="62" width="60" height="6" rx="3" fill="#ffffff" opacity="0.5"/>
+    <rect x="58" y="82" width="60" height="6" rx="3" fill="#ffffff" opacity="0.5"/>
+    <rect x="58" y="102" width="44" height="6" rx="3" fill="#ff4b50"/>
+    <!-- curled page corner -->
+    <path d="M106 158 h22 a22 22 0 0 1 -22 -22 z" fill="#ff4b50"/>
+  </g>
+
+  <!-- pen (drawn on top, nib at origin) -->
+  <g filter="url(#shadow)">
+    <g transform="translate(112 148) rotate(-40)">
+      <!-- tail cap -->
+      <rect x="-8" y="-104" width="16" height="12" rx="4" fill="#ff4b50"/>
+      <!-- body -->
+      <rect x="-7" y="-92" width="14" height="56" rx="5" fill="url(#penBody)"/>
+      <!-- grip -->
+      <rect x="-7" y="-20" width="14" height="20" rx="4" fill="#15181f"/>
+      <!-- nib -->
+      <path d="M-7 0 L7 0 L0 18 Z" fill="#e01e26"/>
+    </g>
+  </g>
+</svg>
