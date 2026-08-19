@@ -17,7 +17,10 @@ export function AuthProvider({ children }) {
   // Session persistence: re-validate the (cookie-based) session on mount.
   const bootstrap = useCallback(async () => {
     try {
-      const { user: me } = await api.me();
+      const { user: me } = await Promise.race([
+        api.me(),
+        new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), 5000))
+      ]);
       setUser(me);
       localStorage.setItem(USER_KEY, JSON.stringify(me));
     } catch {

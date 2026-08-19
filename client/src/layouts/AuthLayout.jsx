@@ -2,11 +2,20 @@ import { useEffect } from 'react';
 import { Navigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { LogoMark } from '../components/Logo';
+import { Loader2 } from 'lucide-react';
 
 export default function AuthLayout({ children }) {
   const { user, loading } = useAuth();
 
-  if (!loading && user) {
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-neutral-50 dark:bg-[#0d0f17] flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-brand-500" />
+      </div>
+    );
+  }
+
+  if (user) {
     return <Navigate to="/app" replace />;
   }
 
