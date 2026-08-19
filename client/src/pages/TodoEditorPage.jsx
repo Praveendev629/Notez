@@ -322,15 +322,15 @@ export default function TodoEditorPage() {
                       onChange={(e) => setEditText(e.target.value)}
                       onBlur={() => commitEdit(item.id)}
                       onKeyDown={(e) => e.key === 'Enter' && commitEdit(item.id)}
-                      className="flex-1 rounded border border-brand-300 bg-transparent px-2 py-0.5 text-sm text-neutral-800 focus:outline-none dark:text-neutral-100"
+                      className="flex-1 rounded border border-brand-300 bg-transparent px-2 py-0.5 text-base text-neutral-800 focus:outline-none dark:text-neutral-100"
                     />
                   ) : (
                     <span
                       onDoubleClick={() => startEdit(item)}
-                      className={`flex-1 text-sm ${
+                      className={`flex-1 text-base font-medium ${
                         item.completed
                           ? 'text-neutral-400 line-through dark:text-neutral-500'
-                          : 'text-neutral-800 dark:text-neutral-100'
+                          : 'text-neutral-900 dark:text-white'
                       }`}
                     >
                       {item.text}
@@ -341,10 +341,10 @@ export default function TodoEditorPage() {
                     <button onClick={() => startEdit(item)} className="rounded p-1 text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200" aria-label="Edit task">
                       <Pencil className="h-3.5 w-3.5" />
                     </button>
-                    <button onClick={() => move(item.id, -1)} className="rounded p-1 text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200" aria-label="Move up">
+                    <button onClick={() => move(idx, -1)} className="rounded p-1 text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200" aria-label="Move up">
                       <ArrowUp className="h-3.5 w-3.5" />
                     </button>
-                    <button onClick={() => move(item.id, 1)} className="rounded p-1 text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200" aria-label="Move down">
+                    <button onClick={() => move(idx, 1)} className="rounded p-1 text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200" aria-label="Move down">
                       <ArrowDown className="h-3.5 w-3.5" />
                     </button>
                     <button onClick={() => removeItem(item.id)} className="rounded p-1 text-neutral-400 hover:text-red-500" aria-label="Delete task">
