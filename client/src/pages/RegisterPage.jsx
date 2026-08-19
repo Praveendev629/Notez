@@ -43,13 +43,13 @@ export default function RegisterPage() {
     }
   };
 
-  const field = (id, label, icon, extra) => (
+  const field = (id, label, Icon, extra) => (
     <div>
       <label htmlFor={id} className="mb-1.5 block text-sm font-medium text-neutral-700 dark:text-neutral-300">
         {label}
       </label>
       <div className="relative">
-        {icon}
+        <Icon className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-400" />
         <input id={id} {...extra} className="input pl-9" aria-invalid={!!errors[id]} />
       </div>
       {errors[id] && <p className="mt-1 text-xs text-red-500">{errors[id]}</p>}
