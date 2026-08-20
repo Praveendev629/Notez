@@ -24,7 +24,7 @@ export function useNotes(filter = {}) {
     }
   }, [
     filter.type,
-    filter.isPinned,
+    filter.pinned,
     filter.archived,
     filter.completed,
     filter.sort,

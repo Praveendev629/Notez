@@ -29,7 +29,7 @@ export default function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const filter = useMemo(() => {
-    if (tab === 'pinned') return { isPinned: true, sort };
+    if (tab === 'pinned') return { pinned: true, sort };
     if (tab === 'todos') return { type: 'todo', sort };
     if (tab === 'archived') return { archived: true, sort };
     return { archived: false, sort };

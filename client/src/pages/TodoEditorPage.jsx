@@ -304,7 +304,7 @@ export default function TodoEditorPage() {
                   }`}
                 >
                   <button
-                    onClick={() => update(item.id, { completed: !item.completed })}
+                    onClick={() => updateItem(item.id, { completed: !item.completed })}
                     className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border transition ${
                       item.completed
                         ? 'border-brand-500 bg-brand-500 text-white'
